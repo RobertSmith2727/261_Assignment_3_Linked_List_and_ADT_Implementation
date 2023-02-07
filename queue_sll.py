@@ -82,7 +82,7 @@ class Queue:
         TODO: Write this implementation
         """
         if self.is_empty() is True:
-            return QueueException
+            raise QueueException
         value = self._head.value
         self._head = self._head.next
         return value
