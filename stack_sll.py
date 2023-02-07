@@ -74,7 +74,6 @@ class Stack:
         self._head = new_node
         self._head.next = temp_node
 
-
     def pop(self) -> object:
         """
         TODO: Write this implementation
