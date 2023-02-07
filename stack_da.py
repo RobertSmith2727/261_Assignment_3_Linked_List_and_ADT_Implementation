@@ -1,9 +1,10 @@
-# Name:
-# OSU Email:
-# Course: CS261 - Data Structures
-# Assignment:
-# Due Date:
+# Name: Robert Smith
+# OSU Email: Smithro8@oregonstate.edu
+# Course:       CS261 - Data Structures
+# Assignment: 3
+# Due Date: 02/13/2023
 # Description:
+
 from dynamic_array import *
 
 

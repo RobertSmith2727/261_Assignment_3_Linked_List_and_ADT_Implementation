@@ -1,9 +1,10 @@
-# Name:
-# OSU Email:
-# Course: CS261 - Data Structures
-# Assignment:
-# Due Date:
-# Description:
+# Name: Robert Smith
+# OSU Email: Smithro8@oregonstate.edu
+# Course:       CS261 - Data Structures
+# Assignment: 3
+# Due Date: 02/13/2023
+# Description: A singly linked list data structure that has various methods to add (front,middle,back),
+#              remove (front,middle,back, specific value), count, and slice
 
 from SLNode import *
 
@@ -77,7 +78,7 @@ class LinkedList:
 
     def insert_back(self, value: object) -> None:
         """
-         Inserts a value to the back of a linked list
+        Inserts a value to the back of a linked list
         """
         new_node = SLNode(value)
         # if empty
@@ -93,7 +94,8 @@ class LinkedList:
 
     def insert_at_index(self, index: int, value: object) -> None:
         """
-        TODO: Write this implementation
+        Inserts a value at a specified index
+        Must be in range of LL indecies
         """
 
         new_node = SLNode(value)
@@ -131,7 +133,8 @@ class LinkedList:
 
     def remove_at_index(self, index: int) -> None:
         """
-        TODO: Write this implementation
+        Removes a value from LL
+        Must be in range of LL indecies
         """
         # remove at front
         if self.length() >= 1 and index == 0:
@@ -162,7 +165,8 @@ class LinkedList:
 
     def remove(self, value: object) -> bool:
         """
-        TODO: Write this implementation
+        Iterates through the LL, removes passed value and returns true
+        Otherwise returns false
         """
         loop_index = 0
         cur_node = self._head.next
@@ -183,7 +187,7 @@ class LinkedList:
 
     def count(self, value: object) -> int:
         """
-        TODO: Write this implementation
+        Returns a count of a passed value
         """
         loop_index = 0
         count = 0
@@ -198,7 +202,8 @@ class LinkedList:
 
     def find(self, value: object) -> bool:
         """
-        TODO: Write this implementation
+        Returns True if value passed is in LL
+        Otherwise returns false
         """
         loop_index = 0
         cur_node = self._head.next
@@ -212,7 +217,8 @@ class LinkedList:
 
     def slice(self, start_index: int, size: int) -> "LinkedList":
         """
-        TODO: Write this implementation
+        Returns a new LL slice
+        Indices must be in range of LL
         """
         new_ll = LinkedList()
 
