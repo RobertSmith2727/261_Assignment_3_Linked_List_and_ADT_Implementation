@@ -81,7 +81,11 @@ class Queue:
         """
         TODO: Write this implementation
         """
-        pass
+        if self.is_empty() is True:
+            return QueueException
+        value = self._head.value
+        self._head = self._head.next
+        return value
 
     def front(self) -> object:
         """
