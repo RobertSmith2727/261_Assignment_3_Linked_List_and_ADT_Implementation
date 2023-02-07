@@ -78,7 +78,11 @@ class Stack:
         """
         TODO: Write this implementation
         """
-
+        if self.is_empty() is True:
+            raise StackException
+        value = self._head.value
+        self._head = self._head.next
+        return value
 
     def top(self) -> object:
         """
