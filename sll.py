@@ -70,9 +70,9 @@ class LinkedList:
         """
         # creates new node
         new_node = SLNode(value)
-        # points the new node to first index
+        # assigns node to first index
         new_node.next = self._head.next
-        # points the head to new node
+        # points head to new node
         self._head.next = new_node
 
     def insert_back(self, value: object) -> None:
@@ -214,7 +214,28 @@ class LinkedList:
         """
         TODO: Write this implementation
         """
-        pass
+        # if empty
+        if self.is_empty() is True:
+            raise SLLException
+        # if index is neg
+        if start_index < 0:
+            raise SLLException
+        # if index out of range
+        if start_index > self.length() - 1:
+            raise SLLException
+
+        new_ll = LinkedList()
+        loop_index = 0
+        cur_node = self._head.next
+        stop = start_index + size
+        # iterate through LL
+        while loop_index != stop:
+            # adds vals to new LL
+            if loop_index >= start_index:
+                new_ll.insert_back(cur_node.value)
+            cur_node = cur_node.next
+            loop_index += 1
+        return new_ll
 
 
 if __name__ == "__main__":
