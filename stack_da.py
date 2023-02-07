@@ -53,13 +53,16 @@ class Stack:
         Adds a value to the top of a stack
         """
         self._da.append(value)
-        return self._da
 
     def pop(self) -> object:
         """
         TODO: Write this implementation
         """
-        pass
+        if self.is_empty() is True:
+            raise StackException
+        value = self._da[self.size() - 1]
+        self._da.remove_at_index(self.size() - 1)
+        return value
 
     def top(self) -> object:
         """
