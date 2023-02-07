@@ -52,7 +52,7 @@ class Stack:
         """
         TODO: Write this implementation
         """
-        pass
+        self._da.append(value)
 
     def pop(self) -> object:
         """
