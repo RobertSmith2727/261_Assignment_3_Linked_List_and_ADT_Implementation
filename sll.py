@@ -214,6 +214,8 @@ class LinkedList:
         """
         TODO: Write this implementation
         """
+        new_ll = LinkedList()
+
         # if empty
         if self.is_empty() is True:
             raise SLLException
@@ -227,10 +229,12 @@ class LinkedList:
         if size > self.length():
             raise SLLException
         # if size is neg
-        if size < start_index:
+        if size < 0:
             raise SLLException
+        # if size 0
+        if size == 0:
+            return new_ll
 
-        new_ll = LinkedList()
         loop_index = 0
         cur_node = self._head.next
         stop = start_index + size
@@ -308,7 +312,7 @@ if __name__ == "__main__":
     print("\n# slice example 2")
     lst = LinkedList([10, 11, 12, 13, 14, 15, 16])
     print("Source:", lst)
-    slices = [(0, 7), (-1, 7), (0, 8), (2, 3), (5, 0), (5, 3), (6, 1)]
+    slices = [(6, 1), (-1, 7), (0, 8), (2, 3), (5, 0), (5, 3), (6, 1)]
     for index, size in slices:
         print("Start:", index, "Size:", size, end="")
         try:
