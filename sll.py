@@ -185,7 +185,16 @@ class LinkedList:
         """
         TODO: Write this implementation
         """
-        pass
+        loop_index = 0
+        count = 0
+        cur_node = self._head.next
+        # iterate through LL and counts value
+        while loop_index != self.length():
+            if cur_node.value == value:
+                count += 1
+            cur_node = cur_node.next
+            loop_index += 1
+        return count
 
     def find(self, value: object) -> bool:
         """
