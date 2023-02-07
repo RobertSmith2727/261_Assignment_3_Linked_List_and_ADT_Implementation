@@ -220,8 +220,14 @@ class LinkedList:
         # if index is neg
         if start_index < 0:
             raise SLLException
-        # if index out of range
+        # if start index out of range
         if start_index > self.length() - 1:
+            raise SLLException
+        # if size out of range
+        if size > self.length() - 1:
+            raise SLLException
+        # if size is neg
+        if size < start_index:
             raise SLLException
 
         new_ll = LinkedList()
