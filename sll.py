@@ -156,7 +156,7 @@ class LinkedList:
                     previous_node = cur_node
                 cur_node = cur_node.next
                 loop_index += 1
-            # remove nodes
+            # remove node by skipping it
             previous_node.next = cur_node.next
 
 
@@ -164,7 +164,22 @@ class LinkedList:
         """
         TODO: Write this implementation
         """
-        pass
+        loop_index = 0
+        cur_node = self._head.next
+        # iterate through LL
+        while loop_index != self.length():
+            # if first val
+            if loop_index == 0 and cur_node.value == value:
+                self.remove_at_index(0)
+                return True
+            # if val found, remove
+            if cur_node.value == value:
+                previous_node.next = cur_node.next
+                return True
+            previous_node = cur_node
+            cur_node = cur_node.next
+            loop_index += 1
+        return False
 
     def count(self, value: object) -> int:
         """
