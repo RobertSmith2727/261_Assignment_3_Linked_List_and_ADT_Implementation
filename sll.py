@@ -232,7 +232,7 @@ class LinkedList:
         if size < 0:
             raise SLLException
         # if out of range
-        if start_index + size - 1 > self.length():
+        if start_index + size - 1 > self.length() - 1:
             raise ll_slice
         # if size 0
         if size == 0:
