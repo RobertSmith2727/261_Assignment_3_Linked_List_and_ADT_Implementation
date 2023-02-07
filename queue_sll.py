@@ -3,7 +3,7 @@
 # Course:       CS261 - Data Structures
 # Assignment: 3
 # Due Date: 02/13/2023
-# Description:
+# Description: Creates a Queue ADT using singly linked nodes
 
 from SLNode import SLNode
 
@@ -62,7 +62,8 @@ class Queue:
     # -----------------------------------------------------------------------
     def enqueue(self, value: object) -> None:
         """
-        TODO: Write this implementation
+        Adds the value to the back of the queue
+        Raises error if empty
         """
         # creates head/tail as same node
         if self.is_empty() is True:
@@ -71,16 +72,21 @@ class Queue:
             return
         # creates node
         new_node = SLNode(value)
+        # saves tail node
         temp_node = self._tail
+        # assigns new node to tail node
         self._tail = new_node
+        # points temp (previous) node to the tail
         temp_node.next = self._tail
 
 
 
     def dequeue(self) -> object:
         """
-        TODO: Write this implementation
+        Removes the front val of the queue
+        Raises error if empty
         """
+        # if empty
         if self.is_empty() is True:
             raise QueueException
         value = self._head.value
@@ -89,9 +95,13 @@ class Queue:
 
     def front(self) -> object:
         """
-        TODO: Write this implementation
+        Returns the front of the queue
+        Raises error if empty
         """
-        pass
+        # if empty
+        if self.is_empty() is True:
+            raise QueueException
+        return self._head.value
 
 
 # ------------------- BASIC TESTING -----------------------------------------
