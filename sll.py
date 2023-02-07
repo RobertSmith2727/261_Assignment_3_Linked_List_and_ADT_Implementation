@@ -224,7 +224,7 @@ class LinkedList:
         if start_index > self.length() - 1:
             raise SLLException
         # if size out of range
-        if size > self.length() - 1:
+        if size > self.length():
             raise SLLException
         # if size is neg
         if size < start_index:
