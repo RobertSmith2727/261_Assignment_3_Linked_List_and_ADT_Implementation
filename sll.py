@@ -97,27 +97,35 @@ class LinkedList:
         """
 
         new_node = SLNode(value)
+        # insert at front
         if self.length() >= 1 and index == 0:
             self.insert_front(value)
             return
+        # if empty
         if self.is_empty() is True:
             self._head.next = new_node
             return
+        # if index is neg
         if index < 0:
             raise SLLException
+        # if index out of range
         if index > self.length():
             raise SLLException
+        # if inset to back
         if index == self.length():
             self.insert_back(value)
             return
+        # insert in middle
         else:
             cur_node = self._head.next
             loop_index = 0
+            # iterate to end, save prev node
             while loop_index != index:
                 if loop_index + 1 == index:
                     previous_node = cur_node
                 cur_node = cur_node.next
                 loop_index += 1
+            # assign nodes to vals
             new_node.next = cur_node
             previous_node.next = new_node
 
@@ -125,7 +133,32 @@ class LinkedList:
         """
         TODO: Write this implementation
         """
-        pass
+        # remove at front
+        if self.length() >= 1 and index == 0:
+            self._head.next = self._head.next.next
+            return
+        # if empty
+        if self.is_empty() is True:
+            return
+        # if index is neg
+        if index < 0:
+            raise SLLException
+        # if index out of range
+        if index > self.length() - 1:
+            raise SLLException
+        # remove all other index
+        else:
+            cur_node = self._head.next
+            loop_index = 0
+            # iterate to index, save prev node
+            while loop_index != index:
+                if loop_index + 1 == index:
+                    previous_node = cur_node
+                cur_node = cur_node.next
+                loop_index += 1
+            # remove nodes
+            previous_node.next = cur_node.next
+
 
     def remove(self, value: object) -> bool:
         """
