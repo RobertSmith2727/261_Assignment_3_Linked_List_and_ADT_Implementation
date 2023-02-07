@@ -59,7 +59,11 @@ class Queue:
         """
         TODO: Write this implementation
         """
-        pass
+        if self.size() == self._sa.length():
+            self._double_queue()
+        index = self.size()
+        self._sa[index] = value
+        self._current_size = self._current_size + 1
 
     def dequeue(self) -> object:
         """
@@ -79,7 +83,14 @@ class Queue:
         """
         TODO: Write this implementation
         """
-        pass
+        # creates double size
+        double = self.size() * 2
+        temp_arr = self._sa
+        # doubles sa
+        self._sa = StaticArray(double)
+        # appends items to resized arr
+        for index in range(self.size()):
+            self._sa[index] = temp_arr[index]
 
 
 # ------------------- BASIC TESTING -----------------------------------------
