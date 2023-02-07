@@ -53,6 +53,7 @@ class Stack:
         Adds a value to the top of a stack
         """
         self._da.append(value)
+        return self._da
 
     def pop(self) -> object:
         """
