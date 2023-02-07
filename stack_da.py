@@ -50,7 +50,7 @@ class Stack:
     # -----------------------------------------------------------------------
     def push(self, value: object) -> None:
         """
-        TODO: Write this implementation
+        Adds a value to the top of a stack
         """
         self._da.append(value)
 
