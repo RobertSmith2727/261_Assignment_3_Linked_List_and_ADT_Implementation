@@ -69,7 +69,14 @@ class Queue:
         """
         TODO: Write this implementation
         """
-        pass
+        if self.is_empty() is True:
+            raise QueueException
+        index = self._front
+        value = self._sa[index]
+        self._sa[index] = None
+        self._increment(self.front)
+        return value
+
 
     def front(self) -> object:
         """

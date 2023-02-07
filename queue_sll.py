@@ -64,7 +64,18 @@ class Queue:
         """
         TODO: Write this implementation
         """
-        pass
+        # creates head/tail as same node
+        if self.is_empty() is True:
+            self._head = SLNode(value)
+            self._tail = self._head
+            return
+        # creates node
+        new_node = SLNode(value)
+        temp_node = self._tail
+        self._tail = new_node
+        temp_node.next = self._tail
+
+
 
     def dequeue(self) -> object:
         """
