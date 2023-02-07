@@ -231,6 +231,9 @@ class LinkedList:
         # if size is neg
         if size < 0:
             raise SLLException
+        # if out of range
+        if start_index + size - 1 > self.length():
+            raise ll_slice
         # if size 0
         if size == 0:
             return new_ll
@@ -312,7 +315,7 @@ if __name__ == "__main__":
     print("\n# slice example 2")
     lst = LinkedList([10, 11, 12, 13, 14, 15, 16])
     print("Source:", lst)
-    slices = [(6, 1), (-1, 7), (0, 8), (2, 3), (5, 0), (5, 3), (6, 1)]
+    slices = [(6, 3), (-1, 7), (0, 8), (2, 3), (5, 0), (5, 3), (6, 1)]
     for index, size in slices:
         print("Start:", index, "Size:", size, end="")
         try:
