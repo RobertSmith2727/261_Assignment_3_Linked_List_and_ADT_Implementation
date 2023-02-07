@@ -68,7 +68,9 @@ class Stack:
         """
         TODO: Write this implementation
         """
-        pass
+        if self.is_empty() is True:
+            raise StackException
+        return self._da[self.size() - 1]
 
 
 # ------------------- BASIC TESTING -----------------------------------------
