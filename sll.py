@@ -139,7 +139,7 @@ class LinkedList:
             return
         # if empty
         if self.is_empty() is True:
-            return
+            raise SLLException
         # if index is neg
         if index < 0:
             raise SLLException
