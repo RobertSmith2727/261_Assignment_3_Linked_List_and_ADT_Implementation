@@ -200,7 +200,15 @@ class LinkedList:
         """
         TODO: Write this implementation
         """
-        pass
+        loop_index = 0
+        cur_node = self._head.next
+        # iterate through LL
+        while loop_index != self.length():
+            if cur_node.value == value:
+                return True
+            cur_node = cur_node.next
+            loop_index += 1
+        return False
 
     def slice(self, start_index: int, size: int) -> "LinkedList":
         """
