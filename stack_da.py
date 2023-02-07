@@ -3,7 +3,7 @@
 # Course:       CS261 - Data Structures
 # Assignment: 3
 # Due Date: 02/13/2023
-# Description:
+# Description: Implements a stack ADT using a dynamic array class
 
 from dynamic_array import *
 
@@ -56,17 +56,20 @@ class Stack:
 
     def pop(self) -> object:
         """
-        TODO: Write this implementation
+        Pops the value at the top of the stack
+        Returns the value popped
         """
         if self.is_empty() is True:
             raise StackException
         value = self._da[self.size() - 1]
+        # removes last index
+        # O(1) because it never enters the loop of method
         self._da.remove_at_index(self.size() - 1)
         return value
 
     def top(self) -> object:
         """
-        TODO: Write this implementation
+        Returns the value at the top of the stack
         """
         if self.is_empty() is True:
             raise StackException

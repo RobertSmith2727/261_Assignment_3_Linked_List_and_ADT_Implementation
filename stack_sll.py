@@ -3,7 +3,7 @@
 # Course:       CS261 - Data Structures
 # Assignment: 3
 # Due Date: 02/13/2023
-# Description:
+# Description: Implements a stack SDT using a singly linked list
 
 from SLNode import SLNode
 
@@ -63,13 +63,23 @@ class Stack:
         """
         TODO: Write this implementation
         """
-        pass
+        # creates head as first node
+        if self.is_empty() is True:
+            self._head = SLNode(value)
+            return
+        # creates node and holds head as temp
+        new_node = SLNode(value)
+        temp_node = self._head
+        # assigns new to head and old to next
+        self._head = new_node
+        self._head.next = temp_node
+
 
     def pop(self) -> object:
         """
         TODO: Write this implementation
         """
-        pass
+
 
     def top(self) -> object:
         """
