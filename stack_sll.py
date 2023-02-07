@@ -61,7 +61,7 @@ class Stack:
     # -----------------------------------------------------------------------
     def push(self, value: object) -> None:
         """
-        TODO: Write this implementation
+        Pushes value to the top of the stack, which is the head of the LL
         """
         # creates head as first node
         if self.is_empty() is True:
@@ -76,19 +76,25 @@ class Stack:
 
     def pop(self) -> object:
         """
-        TODO: Write this implementation
+        Removes the top of the stack, which is the head of the LL
         """
+        # if empty
         if self.is_empty() is True:
             raise StackException
+        # saves value being popped
         value = self._head.value
+        # points head to the next val
         self._head = self._head.next
         return value
 
     def top(self) -> object:
         """
-        TODO: Write this implementation
+        Returns the top of the stack, which is the head of the LL
         """
-        pass
+        # if empty
+        if self.is_empty() is True:
+            raise StackException
+        return self._head.value
 
 
 # ------------------- BASIC TESTING -----------------------------------------
