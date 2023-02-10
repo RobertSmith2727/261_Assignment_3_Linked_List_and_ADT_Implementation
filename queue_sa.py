@@ -57,92 +57,101 @@ class Queue:
     # ---------------------------------------------------------------------- #
     def enqueue(self, value: object) -> None:
         """
-        TODO: Write this implementation
+        Adds a value to the end of the queue
+        Doubles if no room in the queue
+        Will wrap around if room in the queue before it resizes
         """
+        # doubles if full
         if self.size() == self._sa.length():
             self._double_queue()
-
+        # increment back and add val to back
         self._back = self._increment(self._back)
         self._sa[self._back] = value
         self._current_size = self._current_size + 1
 
-
     def dequeue(self) -> object:
         """
-        TODO: Write this implementation
+        Removes the value at the front of the queue by changing the front index
         """
+        # if empty
         if self.is_empty() is True:
             raise QueueException
+        # changes front to next index
+        # value will be overwritten when enqueue to that index
         index = self._front
         value = self._sa[index]
-        # self._sa[index] = None
         self._front = self._increment(self._front)
         self._current_size -= 1
         return value
 
-
     def front(self) -> object:
         """
-        TODO: Write this implementation
+        Returns the front of the queue
         """
-        pass
+        # if empty
+        if self.is_empty() is True:
+            raise QueueException
+
+        return self._sa[self._front]
 
     # The method below is optional, but recommended, to implement. #
     # You may alter it in any way you see fit.                     #
     def _double_queue(self) -> None:
         """
-        TODO: Write this implementation
+        Doubles the queue size if full
+        Appends old arr to new arr
         """
         # creates double size
         double = self.size() * 2
         temp_arr = self._sa
         # doubles sa
         self._sa = StaticArray(double)
-        # appends items to resized arr
         sa_index = self._front
+        # resets front
         self._front = 0
-
+        # appends items to resized arr
         for index in range(self.size()):
             if sa_index == temp_arr.length():
                 sa_index = 0
             self._sa[index] = temp_arr[sa_index]
+            # sets back index
             self._back = index
             sa_index += 1
 
 
 # ------------------- BASIC TESTING -----------------------------------------
 if __name__ == "__main__":
-    # print("\n# Basic functionality tests #")
-    # print("\n# enqueue()")
-    # q = Queue()
-    # print(q)
-    # for value in [1, 2, 3, 4, 5]:
-    #     q.enqueue(value)
-    # print(q)
-    # print("\n# dequeue()")
-    # q = Queue()
-    # for value in [1, 2, 3, 4, 5]:
-    #     q.enqueue(value)
-    # print(q)
-    # for _ in range(q.size() + 1):
-    #     try:
-    #         print(q.dequeue())
-    #     except Exception as e:
-    #         print("No elements in queue", type(e))
-    # for value in [6, 7, 8, 111, 222, 3333, 4444]:
-    #     q.enqueue(value)
-    # print(q)
-    # q.print_underlying_sa()
-    # print("\n# front()")
-    # q = Queue()
-    # print(q)
-    # for value in ['A', 'B', 'C', 'D']:
-    #     try:
-    #         print(q.front())
-    #     except Exception as e:
-    #         print("No elements in queue", type(e))
-    #     q.enqueue(value)
-    # print(q)
+    print("\n# Basic functionality tests #")
+    print("\n# enqueue()")
+    q = Queue()
+    print(q)
+    for value in [1, 2, 3, 4, 5]:
+        q.enqueue(value)
+    print(q)
+    print("\n# dequeue()")
+    q = Queue()
+    for value in [1, 2, 3, 4, 5]:
+        q.enqueue(value)
+    print(q)
+    for _ in range(q.size() + 1):
+        try:
+            print(q.dequeue())
+        except Exception as e:
+            print("No elements in queue", type(e))
+    for value in [6, 7, 8, 111, 222, 3333, 4444]:
+        q.enqueue(value)
+    print(q)
+    q.print_underlying_sa()
+    print("\n# front()")
+    q = Queue()
+    print(q)
+    for value in ['A', 'B', 'C', 'D']:
+        try:
+            print(q.front())
+        except Exception as e:
+            print("No elements in queue", type(e))
+        q.enqueue(value)
+    print(q)
     print("\n# Circular buffer tests: #\n")
 
 
