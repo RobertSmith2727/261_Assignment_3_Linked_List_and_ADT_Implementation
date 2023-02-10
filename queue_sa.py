@@ -3,9 +3,12 @@
 # Course:       CS261 - Data Structures
 # Assignment: 3
 # Due Date: 02/13/2023
-# Description:
+# Description: Creates a Queue ADT using a static array, methods for enqueue,
+#              dequeue, and front
+
 # Note: Changing any part of the pre-implemented methods (besides adding  #
 #       default parameters) will cause the Gradescope tests to fail.      #
+
 from static_array import StaticArray
 
 

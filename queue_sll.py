@@ -3,7 +3,8 @@
 # Course:       CS261 - Data Structures
 # Assignment: 3
 # Due Date: 02/13/2023
-# Description: Creates a Queue ADT using singly linked nodes
+# Description: Creates a Queue ADT using singly linked nodes, methods for enqueue,
+#              dequeue, and front
 
 from SLNode import SLNode
 
@@ -78,8 +79,6 @@ class Queue:
         self._tail = new_node
         # points temp (previous) node to the tail
         temp_node.next = self._tail
-
-
 
     def dequeue(self) -> object:
         """

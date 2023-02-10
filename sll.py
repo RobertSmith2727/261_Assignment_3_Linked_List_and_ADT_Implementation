@@ -162,7 +162,6 @@ class LinkedList:
             # remove node by skipping it
             previous_node.next = cur_node.next
 
-
     def remove(self, value: object) -> bool:
         """
         Iterates through the LL, removes passed value and returns true

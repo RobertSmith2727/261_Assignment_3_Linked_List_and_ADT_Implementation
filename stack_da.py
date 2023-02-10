@@ -3,7 +3,8 @@
 # Course:       CS261 - Data Structures
 # Assignment: 3
 # Due Date: 02/13/2023
-# Description: Implements a stack ADT using a dynamic array class
+# Description: Implements a stack ADT using a dynamic array class,
+#              methods for push, pop, and top
 
 from dynamic_array import *
 

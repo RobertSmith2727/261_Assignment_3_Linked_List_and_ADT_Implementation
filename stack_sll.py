@@ -4,6 +4,7 @@
 # Assignment: 3
 # Due Date: 02/13/2023
 # Description: Implements a stack SDT using singly linked nodes
+#              methods for push, pop, and top
 
 from SLNode import SLNode
 
